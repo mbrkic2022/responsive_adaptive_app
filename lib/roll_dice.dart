@@ -43,11 +43,19 @@ class _RollDiceState extends State<RollDice> {
     //     ),
     //   );
     // }
-    if (MediaQuery.of(context).size.width < 600) {
-      return _buildPortraitMode();
-    } else {
-      return _buildLandscapeMode();
-    }
+    // if (MediaQuery.of(context).size.width < 600) {
+    //   return _buildPortraitMode();
+    // } else {
+    //   return _buildLandscapeMode();
+    // }
+    return LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
+      if (constraints.maxWidth < 600) {
+        return _buildPortraitMode();
+      } else {
+        return _buildLandscapeMode();
+      }
+    });
   }
 
   Widget _buildPortraitMode() {
