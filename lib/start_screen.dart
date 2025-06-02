@@ -32,13 +32,39 @@ class _StartScreenState extends State<StartScreen> {
     );
   }
 
-  void onPressed() {
-    Navigator.push(
-        context,
-        MaterialPageRoute(
-            builder: (ctx) => GradientContainer(
-                color1: Colors.purple,
-                color2: Colors.yellow,
-                text: _textEditingController.text)));
+  // void onPressed() {
+  //   Navigator.push(
+  //       context,
+  //       MaterialPageRoute(
+  //           builder: (ctx) => GradientContainer(
+  //               color1: Colors.purple,
+  //               color2: Colors.yellow,
+  //               text: _textEditingController.text)));
+  // }
+
+    void onPressed() {
+    if (_textEditingController.text.trim().isEmpty) {
+      showDialog(
+          context: context,
+          builder: (ctx) => AlertDialog(
+                  title: const Text('Invalid input'),
+                  content: const Text('Make sure the text field is not empty!'),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(ctx),
+                      child: const Text('Ok'),
+                    )
+                  ]));
+    } else {
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (ctx) => GradientContainer(
+                  color1: Colors.purple,
+                  color2: Colors.yellow,
+                  text: _textEditingController.text)));
+    }
   }
+}
+
 }
