@@ -22,6 +22,21 @@ void main() {
               ),
             ),
       ),
+      darkTheme: ThemeData.dark().copyWith(
+        colorScheme: kColorScheme,
+        brightness: Brightness.dark,
+        appBarTheme: AppBarTheme(
+          backgroundColor: kColorScheme.primary,
+          foregroundColor: kColorScheme.onPrimary,
+        ),
+        textTheme: ThemeData().textTheme.copyWith(
+              titleLarge: TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.bold,
+                color: kColorScheme.onPrimaryContainer,
+              ),
+            ),
+      ),
       home: StartScreen(),
     ),
   );
